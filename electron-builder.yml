@@ -1,0 +1,4 @@
+appId: me.ionutachim.${name}
+productName: "Office 365 - Mail"
+linux:
+  icon: assets/icons/png
