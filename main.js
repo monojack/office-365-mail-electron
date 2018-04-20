@@ -42,5 +42,19 @@ app.on('ready', function () {
     shell.openExternal(url)
   })
 
+  // Prevent copy and cut from being stolen by other hotkeys
+  win.webContents.on('before-input-event', (e, input) => {
+    if (input.key === 'c' && input.control) {
+      win.webContents.copy();
+      e.preventDefault();
+      return false;
+    }
+    if (input.key === 'x' && input.control) {
+      win.webContents.cut();
+      e.preventDefault();
+      return false;
+    }
+  })
+
   win.show()
 })
