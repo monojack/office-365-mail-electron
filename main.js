@@ -38,8 +38,11 @@ app.on('ready', function () {
   })
 
   win.webContents.on('new-window', function (event, url) {
-    event.preventDefault()
-    shell.openExternal(url)
+    // outlook.office.com links should open in the electron container.
+    if (url && !url.includes('outlook.office.com')) {
+      event.preventDefault();
+      shell.openExternal(url);
+    }
   })
 
   // Prevent copy and cut from being stolen by other hotkeys
