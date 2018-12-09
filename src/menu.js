@@ -45,7 +45,7 @@ module.exports = [
         accelerator: 'CmdOrCtrl+R',
         click: function (item, focusedWindow) {
           if (focusedWindow) {
-            focusedWindow.reload()
+            focusedWindow.loadURL('https://portal.microsoftonline.com');
           }
         },
       },
